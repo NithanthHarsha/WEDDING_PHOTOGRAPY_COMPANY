@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-luxury-bg: #F8F5F1;
+  --color-luxury-sec: #E9DDD2;
+  --color-luxury-gold: #C8B6A6;
+  --color-luxury-dark: #3A312B;
+  --color-luxury-muted: #7D746D;
+  --color-luxury-border: #E5DED7;
+  
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-inter), sans-serif;
+}
+
+:root {
+  --background: #F8F5F1;
+  --foreground: #3A312B;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar for Luxury Aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F5F1;
+}
+::-webkit-scrollbar-thumb {
+  background: #C8B6A6;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7D746D;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Helper Utilities */
+.luxury-border {
+  border: 1px solid #E5DED7;
+}
+
+.luxury-text-gradient {
+  background: linear-gradient(135deg, #3A312B 0%, #7D746D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.luxury-gold-gradient {
+  background: linear-gradient(135deg, #C8B6A6 0%, #E9DDD2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hide scrollbars for horizontal slider */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
