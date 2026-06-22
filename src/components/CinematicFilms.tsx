@@ -1,16 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Play, X } from "lucide-react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function CinematicFilms() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  // High quality sample luxury wedding film on YouTube
-  const videoUrl = "https://www.youtube.com/embed/5F_C1z7c6m0?autoplay=1&mute=0";
-
   return (
     <section id="films" className="relative py-32 bg-luxury-dark overflow-hidden">
       {/* Background Image / Thumbnail with deep dark overlay and Ken Burns movement */}
@@ -74,62 +67,7 @@ export default function CinematicFilms() {
         >
           We capture the rhythm, the sighs, the laughter, and the tears in motion. High-definition films that feel like independent cinema.
         </motion.p>
-
-        {/* Floating Play Button with Ripples */}
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          onClick={() => setIsOpen(true)}
-          className="relative w-24 h-24 flex items-center justify-center rounded-full bg-luxury-gold text-luxury-dark shadow-xl hover:bg-luxury-bg hover:text-luxury-gold hover:scale-105 transition-all duration-500 cursor-pointer"
-        >
-          {/* Animated Gold Waves */}
-          <span className="absolute inset-0 rounded-full bg-luxury-gold/30 animate-ping" />
-          <span className="absolute -inset-4 rounded-full border border-luxury-gold/40 animate-[spin_10s_linear_infinite]" />
-          
-          <Play size={28} className="translate-x-[2px]" />
-        </motion.button>
       </div>
-
-      {/* Video Lightbox Modal */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="fixed inset-0 bg-luxury-dark/95 z-50 flex items-center justify-center p-4 md:p-8"
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-6 right-6 text-luxury-bg hover:text-luxury-gold transition-colors p-2 z-55 bg-luxury-dark/50 rounded-full"
-              aria-label="Close video player"
-            >
-              <X size={30} />
-            </button>
-
-            {/* Scale Video Container */}
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="w-full max-w-5xl aspect-video bg-black border border-luxury-border shadow-2xl relative overflow-hidden"
-            >
-              <video
-                src="/videos/wedding.mp4"
-                controls
-                autoPlay
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }
